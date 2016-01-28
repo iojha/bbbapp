@@ -20,43 +20,38 @@
 
 <div class="container" ng-controller="myCtrl">
 	<div class="row">
-		<div class="main-heading col-xs-12" style="text-align: center">
+		<div class="main-heading col-xs-12 text">
 		<h1>BBB Weight Tracking App</h1>
 		</div>
 	</div>
 
-	<div ng-if="login_success">
+<!-- 	<div ng-if="login_success">
 
 		<div class="col-xs-4 col-xs-offset-4">
-			<img src="{{ profile_image}}" width="100" height="100"</img><br>
+			<img src="{{ profile_image }}" width="100" height="100"</img><br>
 			<h4>{{ login_message }}</h4>
 		</div>
-	</div>
+	</div> -->
 
 
-
-	<div class="row" ng-if="!login_success">
+<!-- 	<div class="row" ng-if="!login_success">
   		<button ng-click="login()">Login</button>
-  	</div>
+  	</div -->
 
 		<div class="col-xs-12">
-		<form name="form" novalidate ng-submit="submit()">
+		<form name="form" ng-submit="submit()">
 			<h3>Track Your Weight</h3>
-			<p>Weight: <input type="number" id="weight" ng-model="user.weight" required=""></p>
-			<button class="btn btn-info" ng-click="submit()">Submit</button>
+			<p>Week:<input type="number" id="week" ng-model="week" required=""></p>
+			<p>Weight: <input type="number" id="weight" ng-model="weight" required=""></p>
+			<button class="btn btn-info">Submit</button>
 			 
 			<h3>Your previous weighings</h3>:
-				<table>
-				<tr>
-					<th style="margin-left:10px">Week</th>
-					<th style="margin-left:10px">Weight</th>
-					<th style="margin-left:10px">Loss/Gain</th>
-				</tr>
-				<tr>
-					<td>{{ user.weight }}</td>
-				</tr>
-				</table>
-			</h2>
+				<ul ng-repeat="weight in weights">
+					<li>
+						{{ weight.$value }}
+					</li>
+				</ul>
+			</h3>
 		</div>
 </div>
 
